@@ -43,7 +43,7 @@ if __name__ == "__main__":
                 )
         yarn_api = yarn.json()
         reason_all_using = yarn_api['scheduler']['schedulerInfo']['usedCapacity']
-        print("Using all :",reason_all_using,"%")
+        # print("Using all :",reason_all_using,"%")
         # Queue = yarn_api['scheduler']['schedulerInfo']['queues']
         # print(Queue)
         yarn_reason_cluster.labels(
@@ -54,9 +54,9 @@ if __name__ == "__main__":
         for schedulerInfo in yarn_api['scheduler']['schedulerInfo']['queues']['queue']:
             Reason_name = schedulerInfo['queueName']
             Reason_using = schedulerInfo['usedCapacity']
-            print(" Queue Name",schedulerInfo['queueName'])
-            print(" Using",schedulerInfo['usedCapacity'],"%")
-            print("")
+            # print(" Queue Name",schedulerInfo['queueName'])
+            # print(" Using",schedulerInfo['usedCapacity'],"%")
+            # print("")
 
             yarn_reason.labels(
                 Reason_name=Reason_name, 
@@ -68,9 +68,9 @@ if __name__ == "__main__":
                 for subschedulerInfo in schedulerInfo['queues']['queue']:
                     sub_reason_name = subschedulerInfo['queueName']
                     sub_reason_using = subschedulerInfo['usedCapacity']
-                    print("  Subqueue Name",subschedulerInfo['queueName'])
-                    print("  Using",subschedulerInfo['usedCapacity'],"%")
-                    print("")
+                    # print("  Subqueue Name",subschedulerInfo['queueName'])
+                    # print("  Using",subschedulerInfo['usedCapacity'],"%")
+                    # print("")
 
                     yarn_sub_reason.labels(
                         Reason_name=Reason_name, Sub_reason=sub_reason_name
@@ -95,4 +95,4 @@ if __name__ == "__main__":
     #             Cluster_name=clusters_name, Workspace=WORKSPACE_NAME
     #         ).set(status_cluster)
         process_request(5)
-        print("--------------------------")
+        # print("--------------------------")
