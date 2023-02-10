@@ -19,7 +19,7 @@ def process_request(t):
 
 if __name__ == "__main__":
     # Start up the server to expose the metrics.
-    start_http_server(8000)
+    start_http_server(9106)
     
     yarn_reason_cluster = Gauge(
         "YARN_Reason_Cluster",
